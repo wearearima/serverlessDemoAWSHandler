@@ -38,3 +38,14 @@ Como cada función Lambda solo puede ejecutar una función, habrá que crear una
 5. Añadir una variable de entorno llamada `spring_cloud_function_definition` con el nombre de la función que queramos ejecutar (por ejemplo, `reserve`).
 
 Repetir pasos 2-5 por cada función que queramos.
+
+Si en algún momento necesitamos modificar algún parámetro de conexión a la BD, podremos sobreescribirlos añadiendo variables de entorno a la función con el mismo nombre que la propiedad (sustituyendo los `.` por `_`). Por ejemplo:
+```
+spring.datasource.url
+```
+se sobreescribe con la variable de entorno
+```
+spring_datasource_url
+```
+
+## API Gateway

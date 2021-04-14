@@ -1,19 +1,19 @@
 # serverlessDemoAWSHandler
-Demo para utilizar una aplicación Spring Boot con AWS Lambda functions
+Spring Boot demo using AWS Lambda functions with the AWS SDK Handler.
 
-**Atención: Esta demo es un ejemplo y no tiene una lógica de negocio, solo responde con los valores de la petición que recibe**
+**WARNING: This demo is just an example and doesn't have proper business logic, it just answers with the values that it receives**
 
-## Publicar en AWS
+## Publish on AWS
 
-Para generar los archivos necesarios para S3:
+To generate the necessary files for S3:
 ```bash
 ./mvnw clean package
 ```
-Como cada función Lambda solo puede ejecutar una función, habrá que crear una para cada una que contenga nuestra aplicación:
-1. Subimos a un bucket de S3 el fichero acabado en `-aws.jar`.
+After that finishes, we'll create the function as follows:
+1. We upload to a S3 bucket the file in the `target` directory ending in `-aws.jar`.
 
-2. Creamos una Lambda function utilizando el runtime Java 8 y la dirección del bucket S3 con el fichero `-aws.jar` que hemos subido.
+2. We create a Lambda function and choose `Java8` as its runtime and the url of the S3 bucket file that we just uploaded.
 
-3. Configurar el handler para que sea `eu.arima.serverlessDemo.handlers.HandlerReservationMock::handleRequest`
+3. We change the functions handler to `eu.arima.serverlessDemo.handlers.HandlerReservationMock::handleRequest`
 
-## API Gateway
+AWS Lambda offers more customization options where you can choose from, as setting environment variables or memory allocation. These configurations are not needed to run this basic demo though, so they won't be covered.
